@@ -1,0 +1,6 @@
+Message from:
+
+{{name}}
+({{email}})
+
+{{msg}}

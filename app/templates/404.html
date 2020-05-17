@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="notFound">
+    <h1>404</h1>
+    <p class="raleway">Oops! The page you are looking for does not exist.<br>
+    Make sure the entered URL is correct.</p>
+    <p class="goHome raleway"><a href="{{ url_for('index') }}">Head back to home</a></p>
+</div>
+    
+{% endblock %}

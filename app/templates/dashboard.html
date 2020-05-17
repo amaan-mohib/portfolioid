@@ -1,0 +1,48 @@
+{% extends "vertical_banner.html" %}
+
+{% block rightSide %}
+
+{% if temp %}
+<div class="thumb-card">
+    <div class="thumb-card-container">
+        <div>
+            <img src="{{thumb}}">
+        </div>
+        <div class="floating">
+            <p><b>{{temp}}</b></p>
+            {% if current_user.username %}
+            <p id="para" class="">Your portfolio: <br><a href="{{url_for('portfolio', username=current_user.username, _external=True)}}" target="_blank">
+                {{url_for('portfolio', username=current_user.username, _external=True)}}
+            </a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="btns">
+    <div>
+    <a href="{{url_for('template')}}">
+        <button class="login btnsBtn" type="button">Change</button>
+    </a>
+</div>
+</div>
+
+{% else %}
+<div class="info">
+    <p class="raleway">
+        Before creating your portfolio,<br>
+        Rememeber to edit your profile.
+    </p>
+</div>
+<div class="card">
+    <div class="card-container">
+            <div class="create">
+                <a href="{{ url_for('template') }}">
+                    <h1>+</h1>
+                    <p class="raleway" >Create Portfolio</p>
+                </a>
+            </div>
+    </div>
+</div>
+{% endif %}
+    
+{% endblock %}

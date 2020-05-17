@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="profileBanner">
+        <div class="pp">
+            {% if img %}
+            <img src="{{img}}" width="200px">
+            {% else %}
+            <img src="/static/img/img_avatar.png" width="200px">
+            {% endif %}
+        </div>
+        <div class="bio">
+            <div>
+                {% if name %}
+                <h1>{{name}}</h1>
+                {% else %}
+                <h1>{{user.username}}</h1>
+                {% endif %}
+            </div>
+            
+                {% if user==current_user %}
+                <p class="goHome"><a href="{{ url_for('dashboard') }}">Go to dashboard</a></p>
+                <p class="goHome"><a href="{{ url_for('edit_profile') }}">Edit Profile</a></p>
+                {% endif %}
+            
+        </div>
+    </div>
+    <hr class="userHR">
+    <div class="aboutUser">
+        <div class="subhead">
+            <h2>About</h2>
+        </div>
+        <div class="subcontent raleway">
+            {% if about %}
+            {% for text in about %}
+                <p>{{text}}</p>
+            {% endfor %}
+            {% else %}
+            <p>Add something about yourself</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="aboutUser">
+        <div class="subhead">
+            <h2>Social Media Links</h2>
+        </div>
+        <div class="subcontent raleway">
+            {% if fb %}
+                {% for name,links in fb.items() %}
+                    {% if links %}
+                        <p><b>{{name}}</b> <a href="{{ ''.join(['http://', links]) }}" target="_blank">{{links}}</a></p>
+                    {% else %}
+                        <p>Add your {{name}} profile</p>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>Link some of your social media profiles</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="timeBar text-muted raleway">
+        {% if timestamp %}
+        <p>Last edited on {{moment(timestamp).format('LLL')}}</p>
+        {% endif %}
+    </div>
+    
+{% endblock %}

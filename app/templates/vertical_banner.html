@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block sideBar %}
+<div class="VprofileBanner">
+    <div class="pp">
+        {% if img %}
+        <img src="{{img}}">
+        {% else %}
+        <img src="/static/img/img_avatar.png" width="150px">
+        {% endif %}
+    </div>
+    <div class="bio">
+        <div>
+            {% if name %}
+            <h2>Welcome, {{name}}</h2>
+            {% else %}
+            <h2>Welcome, {{user.username}}</h2>
+            {% endif %}
+        </div>
+            <div>
+                <p class="goHome"><a href="{{ url_for('user', username=current_user.username) }}"><b>Profile</b></a></p>
+            </div>
+            
+    </div>
+</div>
+<div class="rightSide">
+    {% block rightSide %}{% endblock %}
+</div>
+{% endblock %}
+

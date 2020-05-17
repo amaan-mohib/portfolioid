@@ -1,0 +1,42 @@
+{% extends "login_base.html" %}
+
+{% block content %}
+<div class="loginCard">
+    <div class="mainHalf">
+        <h1>Log In</h1>
+    <form action="" method="POST" novalidate>
+        {{form.hidden_tag()}}
+        <p>
+            {{form.username.label}}<br>
+            {{form.username(class="textBox",placeholder="Enter your username")}}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.password.label}}<br>
+            {{form.password(class="textBox",placeholder="Your password")}}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}<br>
+            <a href="{{url_for('reset_password_request')}}">Forgot Password?</a> 
+        </p>
+        <p>
+            {{form.remember_me()}} {{form.remember_me.label}}
+        </p>
+        <p>
+            {{form.submit(class="signup btnMD")}}
+        </p>
+    </form>
+    <div class="onMD">
+        New user? <a href="{{url_for('register')}}">Create Account</a>
+    </div>
+    </div>
+    <div class="nextHalf">
+        <h1>New user?</h1><br>Sign up to create your online portfolio<br>
+            <a href="{{url_for('register')}}"><button class="signup" type="button">Sign Up</button></a>
+    </div>
+    
+</div>
+    
+{% endblock %}

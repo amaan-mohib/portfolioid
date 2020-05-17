@@ -1,0 +1,50 @@
+{% extends "login_base.html" %}
+
+{% block content %}
+<div class="loginCard">
+    <div class="mainHalf">
+        <h1>Register</h1>
+    <form action="" method="POST">
+        {{form.hidden_tag()}}
+        <p>
+            {{form.username.label}}<br>
+            {{form.username(class="textBox",placeholder="Enter your username")}}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">{{error}}</span>
+            {%endfor%}
+        </p>
+        <p>
+            {{form.email.label}}<br>
+            {{form.email(class="textBox",placeholder="Enter your email")}}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">{{error}}</span>
+            {%endfor%}
+        </p>
+        <p>
+            {{form.password.label}}<br>
+            {{form.password(class="textBox",placeholder="Enter your password")}}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{error}}</span>
+            {%endfor%}
+        </p>
+        <p>
+            {{form.password2.label}}<br>
+            {{form.password2(class="textBox",placeholder="Repeat password")}}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">{{error}}</span>
+            {%endfor%}
+        </p>
+        <p>{{form.submit(class="signup btnMD")}}</p>
+    </form>
+    <div class="onMD">
+        Already have an account? <a href="{{url_for('login')}}">Log In</a>
+    </div>
+    </div>
+    <div class="nextHalf">
+        <h1>Already have an account?</h1><br>Log in to head to your dashboard<br>
+            <a href="{{url_for('login')}}"><button class="signup" type="button">Log In</button></a>
+    </div>
+    
+</div>
+    
+{% endblock %}

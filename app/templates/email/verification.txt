@@ -1,0 +1,11 @@
+Dear {{user.username}},
+
+This message is to confirm that you have set your template as:
+
+{{template}}
+
+Hope you like your experience with Portfolioid.
+
+Sincerely,
+
+Portfolioid Team

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="editProf">
+    <h1>Edit Profile</h1>
+    <div class="editUser"> 
+        <div class="pp respPP">
+            {% if img %}
+            <img src="{{img}}">
+            {% else %}
+            <img src="/static/img/img_avatar.png" class="respPP" width="200px">
+            {% endif %}
+        </div>
+
+        <div class="editForm">
+        <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="nameBox">
+            <p class="one">
+            {{form.first_name.label}}<br>
+            {{form.first_name(class="textBox",placeholder="Enter your first name")}}<br>
+            {% for error in form.first_name.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            </p>
+            <p class="two">
+                {{form.last_name.label}}<br>
+                {{form.last_name(class="textBox",placeholder="Enter your last name")}}<br>
+            </p>
+        </div>
+        
+        <p>
+            {{form.img.label}}<br>
+            {{form.img(class="textBox",placeholder="Enter image URL")}}<br>
+        </p>
+        <p>
+            {{form.about.label}}<br>
+            {{form.about(rows=10,class="textBox",placeholder="About")}}<br>
+        </p>
+        <div class="links">
+            <h3 class="decorated"><span>Social Links</span></h3>
+            
+            <p>
+                <i class="fab fa-facebook-square sIcon"></i>&emsp;
+                {{form.fb(class="textBox2",placeholder="Enter Facebook link")}}<br>
+            </p>
+            <p>
+                <i class="fab fa-instagram sIcon"></i>&emsp;
+                {{form.insta(class="textBox2",placeholder="Enter Instagram link")}}<br>
+            </p>
+            <p>
+                <i class="fab fa-linkedin sIcon"></i>&emsp;
+                {{form.linkedIn(class="textBox2",placeholder="Enter LinkedIn link")}}<br>
+            </p>
+            <p>
+                <i class="fab fa-github sIcon"></i>&emsp;
+                {{form.github(class="textBox2",placeholder="Enter GitHub link")}}<br>
+            </p>
+            <p>
+                <i class="fab fa-twitter sIcon"></i>&emsp;
+                {{form.twitter(class="textBox2",placeholder="Enter Twitter link")}}<br>
+            </p>
+            <p>
+                <i class="fab fa-youtube sIcon"></i>&emsp;
+                {{form.yt(class="textBox2",placeholder="Enter YouTube link")}}<br>
+            </p>
+        </div>
+        <p>* Marked fields are required.</p>
+        <div class="butBox">
+            <p class="but1">
+            {{form.submit(class="signup btnMD")}}
+        </p>
+        <p class="but2">
+            <input type="button" class="login btnMD" value="Cancel" onclick="history.back(-1)" />
+        </p>
+        </div>
+        <div style="margin-top: 30px; width: 100%;">
+        <button class="modal-btn delete btnMD" type="button">Delete Account</button>
+    </div>
+    </form>
+    </div>
+    </div>  
+</div>
+<div class="modal-bg">
+    <div class="modal">
+        <h2>Do you want to delete your account?</h2>
+        <div class="modBtnDiv">
+            <a href="{{url_for('delete', username=current_user.username)}}"><button class="delete" type="button">Yes</button></a>
+        <button class="signup modal-close-btn" type="button">No</button>
+        </div>
+        <span class="modal-close">&times;</span>
+    </div>
+</div>
+    
+{% endblock %}

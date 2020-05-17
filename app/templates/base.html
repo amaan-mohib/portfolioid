@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your online portfolio with just few steps." />
+  <meta name="keywords" content="Portfolio, e-portfolio, portfolio, personal website" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Spartan:wght@300;400;500;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b2428839d6.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>{{title}} - Portfolioid</title>
+</head>
+
+<body>
+  <nav class="shadow-sm">
+    <div class="logo">
+      <a href="{{url_for('index')}}">
+        <img src="/static/img/logo_portfolioid.svg" title="Portfolioid" alt="Portfoliod" />
+        <h4>Portfolioid</h4>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li id="1"><a href="{{url_for('template')}}">Templates</a></li>
+      <li id="2"><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        {% if current_user.is_anonymous %}
+        <li id="3">
+        <a href="{{url_for('register')}}"><button class="signup" type="button">Sign Up</button></a>
+      </li>
+        <li id="4"><a href="{{url_for('login')}}"><button class="login" type="button">Log In</button></a></li>
+        {% else %}
+          
+          <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
+          <li><a href="{{ url_for('user', username=current_user.username) }}">{{current_user.username}}</a></li>
+          <li><a href="{{url_for('logout')}}"><button class="login" type="button">Log Out</button></a></li>
+          {% if current_user.admin_role %}
+            <li><a href="/admin"><button class="signup" type="button">Admin Panel</button></a></li>
+          {% endif %}
+        {% endif %}
+      
+    </ul>
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  <div class="content">
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="alertParent">
+            {% for message in messages %}
+            <div class="alert info raleway">
+              <span class="closebtn">&times;</span>
+              {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+  {% block content %}{% endblock %}
+  <div class="sideBar">
+    {% block sideBar %}{% endblock %}
+  </div>
+  
+</div>
+  <script src="/static/js/app.js"></script>
+  <script>
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+    
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+      }
+    }
+    
+  </script>
+  <script>
+    $("a[href*='" + location.pathname + "']").addClass("current");
+  </script>
+    {% block scripts %}
+        {{ moment.include_moment() }}
+    {% endblock %}
+</body>
+
+</html>

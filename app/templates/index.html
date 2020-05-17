@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="intro">
+    <h1>Build your own<br>online portfolio website</h1>
+    <div>
+        <a href="{{url_for('register')}}">
+      <button class="signup">Get Started</button></a>
+      <p class="raleway text-muted">Sign up for free</p>
+    </div>
+  </div>
+  
+  <div class="mid">
+    <h1>How to make an online portfolio</h1>
+    <p class="raleway">We provide you the easiest and the quickest way to build an online portfolio website. Just follow a few simple steps.</p>
+    <div class="steps">
+        <ol class="raleway">
+            <li>
+                Sign up for a free account to get started.
+            </li>
+            <li>
+                Answer a few questions and fill a form.
+            </li>
+            <li>
+                Select a template.
+            </li>
+            <li>
+                Launch your online portfolio.
+            </li>
+        </ol>
+    </div>
+    
+  </div>
+  <div class="features">
+    <h1>Features</h1>
+    <div class="card raleway">
+        <div class="card-container">
+            <div class="ftIcon">
+                <i class="fas fa-code"></i>
+            </div>
+            
+            <b>No coding</b><br>We will help you make your beautiful website.
+        </div>
+        <div class="card-container">
+            <div class="ftIcon">
+                <span class="material-icons md-48"> dashboard </span>
+            </div>
+            
+            <b>Many templates to choose from</b><br>Coming Soon!
+        </div>
+        <div class="card-container">
+            <div class="ftIcon">
+                <span class="material-icons md-48"> create </span>
+            </div>
+            
+            <b>Create with ease</b><br>As simple as filling a form.
+        </div>
+        <div class="card-container">
+            <div class="ftIcon">
+                <span class="material-icons md-48"> devices </span>
+            </div>
+            
+            <b>Responsive Website</b><br>Looks beautiful on every device.
+        </div>
+    </div>
+    <div>
+        <a href="{{url_for('register')}}">
+      <button class="signup">Start for free</button></a>
+    </div>
+  </div>
+  <footer>
+  <div class="footer">
+      <h1>Footer</h1>
+  </div>
+</footer>
+{% endblock %}

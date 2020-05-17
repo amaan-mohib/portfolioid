@@ -1,0 +1,23 @@
+{% extends "admin/master.html" %}
+
+{% block head_css %}
+{{super()}}
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Spartan:wght@300;400;500;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="adminPanel">
+    <h1>Hello, admin!</h1>
+    <p>
+        <a href="{{url_for('index')}}"><button style="color: black;" class="signup" type="button">Go Home</button></a>
+    </p>
+    <p>
+        <a href="/admin/portfoliotemplates/"><button style="color: black;" class="signup" type="button">Add template</button></a>
+    </p>
+    <p>
+        <a href="/admin/fileadmin/"><button style="color: black;" class="signup" type="button">Add template files</button></a>
+    </p>
+</div>
+
+{% endblock %}

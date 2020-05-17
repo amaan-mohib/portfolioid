@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="notFound">
+    <h1>An expected error has occurred</h1>
+    <p>The administrator has been notified. Sorry for the inconvenience!</p>
+    <p class="raleway goHome"><a href="{{ url_for('index') }}">Head back to home</a></p>
+</div>
+    
+{% endblock %}
