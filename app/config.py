@@ -16,3 +16,4 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['your-email@example.com']
     TEMP_PER_PAGE=21
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
