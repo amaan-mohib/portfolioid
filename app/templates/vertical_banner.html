@@ -4,9 +4,9 @@
 <div class="VprofileBanner">
     <div class="pp">
         {% if img %}
-        <img src="{{img}}">
+        <img src="{{img}}" alt="{{current_user.username}}">
         {% else %}
-        <img src="/static/img/img_avatar.png" width="150px">
+        <img src="/static/img/img_avatar.png" width="150px" alt="{{current_user.username}}">
         {% endif %}
     </div>
     <div class="bio">

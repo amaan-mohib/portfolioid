@@ -6,9 +6,9 @@
     <div class="editUser"> 
         <div class="pp respPP">
             {% if img %}
-            <img src="{{img}}">
+            <img src="{{img}}" alt="Profile Picture">
             {% else %}
-            <img src="/static/img/img_avatar.png" class="respPP" width="200px">
+            <img src="/static/img/img_avatar.png" class="respPP" width="200px" alt="Profile Picture">
             {% endif %}
         </div>
 
@@ -65,7 +65,7 @@
                 {{form.yt(class="textBox2",placeholder="Enter YouTube link")}}<br>
             </p>
         </div>
-        <p>* Marked fields are required.</p>
+        <p style="color: red;">* Marked fields are required.</p>
         <div class="butBox">
             <p class="but1">
             {{form.submit(class="signup btnMD")}}

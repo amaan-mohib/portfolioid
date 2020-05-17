@@ -7,6 +7,7 @@ from flask_admin import Admin, AdminIndexView
 from app.models import User, Profile, PortfolioTemplates, SocialLinks
 from app.email import send_password_reset_email, send_portfolio_verification, send_message
 from datetime import datetime
+import PIL
 
 def redirect_url(default='index'):
     return request.args.get('next') or \
@@ -180,6 +181,7 @@ def set(template, username):
     else:
         flash('You need to be logged in to set a template.')
         return redirect(url_for('login'))
+
 
 @app.route('/view/<template>')
 def view(template):

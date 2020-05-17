@@ -2,13 +2,18 @@
 
 {% block content %}
 <div class="intro">
-    <h1>Build your own<br>online portfolio website</h1>
-    <div>
-        <a href="{{url_for('register')}}">
-      <button class="signup">Get Started</button></a>
-      <p class="raleway text-muted">Sign up for free</p>
+    <div class="introHalf">
+        <h1>Build your own<br>online portfolio website</h1>
+        <div>
+            <a href="{{url_for('register')}}">
+            <button class="signup">Get Started</button></a>
+            <p class="raleway text-muted">Sign up for free</p>
+        </div>
     </div>
-  </div>
+    <div class="comb">
+        <img src="/static/img/combined.png" alt="Portfolioid Template on many devices">
+    </div>
+</div>
   
   <div class="mid">
     <h1>How to make an online portfolio</h1>
@@ -70,7 +75,14 @@
   </div>
   <footer>
   <div class="footer">
-      <h1>Footer</h1>
+      <div class="logoFoot">
+          <a class="footA" href="{{url_for('index')}}">
+            <h1>Portfolioid</h1></a><br>
+            <div>
+            © 2020 |&emsp;<a class="git" href="https://github.com/amaan-mohib/portfolioid" target="_blank" title="Portfolioid on GitHub">
+            <i class="fab fa-github"></i></a></div>
+      </div>
+    
   </div>
 </footer>
 {% endblock %}

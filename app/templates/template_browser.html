@@ -8,7 +8,7 @@
         <div class="column raleway">
             <div class="temp-card-container">
             <div>
-                <img src="{{thumb}}" width="100%">
+                <img src="{{thumb}}" width="100%" alt="{{name}}">
             </div>
                 <div>
                     <b>{{name}}</b>
@@ -17,16 +17,24 @@
                     <p class="but3">
                         {% if current_user.is_authenticated %}
                             <a href="{{url_for('set', username=current_user.username, template=name)}}">
-                                <button class="signup btnLG btnMD" type="button">Use</button>
+                                <button class="signup2 btnLG btnMD" type="button">
+                                    <span class="material-icons">
+                                        add
+                                        </span>&emsp;Use</button>
                             </a>
                         {% else %}
                             <a href="{{url_for('set', username=current_user, template=name)}}">
-                                <button class="signup btnLG btnMD" type="button">Log In</button>
+                                <button class="signup2 btnLG btnMD" type="button">Log In</button>
                             </a>
                         {% endif %}
                 </p>
                 <p class="but4">
-                    <button class="signup btnLG btnMD" type="button">View</button>
+                    <a href="{{url_for('view', template=name)}}" target="_blank">
+                        <button class="signup2 btnLG btnMD" type="button">
+                            <span class="material-icons">
+                                visibility
+                                </span>View</button>
+                    </a>
                 </p>
                 </div>
             </div>
@@ -41,7 +49,7 @@
     <div class="column2 raleway">
         <div class="temp-card-container">
         <div>
-            <img src="{{thumb}}" width="100%">
+            <img src="{{thumb}}" width="100%" alt="{{name}}">
         </div>
             <div>
                 <b>{{name}}</b>
@@ -50,17 +58,23 @@
                 <p class="but3">
                     {% if current_user.is_authenticated %}
                         <a href="{{url_for('set', username=current_user.username, template=name)}}">
-                            <button class="signup btnLG btnMD" type="button">Use</button>
+                            <button class="signup2 btnLG btnMD" type="button">
+                                <span class="material-icons">
+                                    add
+                                    </span>&emsp;Use</button>
                         </a>
                     {% else %}
                         <a href="{{url_for('set', username=current_user, template=name)}}">
-                            <button class="signup btnLG btnMD" type="button">Log In</button>
+                            <button class="signup2 btnLG btnMD" type="button">Log In</button>
                         </a>
                     {% endif %}
             </p>
             <p class="but4">
                 <a href="{{url_for('view', template=name)}}" target="_blank">
-                    <button class="signup btnLG btnMD" type="button">View</button>
+                    <button class="signup2 btnLG btnMD" type="button">
+                        <span class="material-icons">
+                            visibility
+                            </span>&emsp;View</button>
                 </a>
             </p>
             </div>
