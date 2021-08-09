@@ -73,7 +73,7 @@ python-dateutil==2.8.1
 python-dotenv==0.13.0
 python-editor==1.0.4
 python-telegram-bot==12.4.2
-pywin32==227
+pywin32==301
 pywinpty==0.5.5
 pyzmq==18.1.1
 qtconsole==4.6.0
